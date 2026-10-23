@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- переключение времени суток -->
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/frameLayout">
+
+        <Button
+            android:id="@+id/btnMorning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/holo_blue_bright"
+            android:onClick="btnMorningClick"
+            android:text="@string/button_morning"
+            android:textColor="@android:color/background_light"
+            android:textSize="16sp"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/btnDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/holo_blue_light"
+            android:onClick="btnDayClick"
+            android:text="@string/button_day"
+            android:textColor="@android:color/background_light"
+            android:textSize="16sp"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/btnEvening"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/holo_blue_dark"
+            android:onClick="btnEveningClick"
+            android:text="@string/button_evening"
+            android:textColor="@android:color/background_light"
+            android:textSize="16sp"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/btnNight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/design_default_color_primary_dark"
+            android:onClick="btnNightClick"
+            android:text="@string/button_night"
+            android:textColor="@android:color/background_light"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <!--время суток-->
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="470dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/imageNight"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/night_coding"
+            android:contentDescription="Ночь" />
+
+        <ImageView
+            android:id="@+id/imageEvening"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/evening_deadline"
+            android:contentDescription="Вечер" />
+
+        <ImageView
+            android:id="@+id/imageDay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/day_meetings"
+            android:contentDescription="День" />
+
+        <!-- Утренняя локация -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutMorning"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/imageMorning"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="Утро"
+                android:scaleType="centerCrop"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/morning_standup" />
+
+            <Button
+                android:id="@+id/btnJira"
+                android:layout_width="59dp"
+                android:layout_height="65dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="108dp"
+                android:background="@android:color/transparent"
+                android:onClick="onJiraClick"
+                android:text=""
+                app:layout_constraintStart_toStartOf="@id/imageMorning"
+                app:layout_constraintTop_toTopOf="@id/imageMorning" />
+
+            <Button
+                android:id="@+id/btnCoffee"
+                android:layout_width="62dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="240dp"
+                android:layout_marginTop="60dp"
+                android:background="@android:color/transparent"
+                android:onClick="onCoffeeClick"
+                android:text=""
+                app:layout_constraintStart_toStartOf="@id/imageMorning"
+                app:layout_constraintTop_toBottomOf="@id/btnJira" />
+
+            <Button
+                android:id="@+id/btnTaskBoard"
+                android:layout_width="186dp"
+                android:layout_height="174dp"
+                android:layout_marginStart="224dp"
+                android:layout_marginTop="40dp"
+                android:background="@android:color/transparent"
+                android:onClick="onTaskBoardClick"
+                android:text=""
+                app:layout_constraintStart_toStartOf="@id/imageMorning"
+                app:layout_constraintTop_toTopOf="@id/imageMorning" />
+
+            <Button
+                android:id="@+id/btnTeamLead"
+                android:layout_width="83dp"
+                android:layout_height="240dp"
+                android:layout_marginEnd="180dp"
+                android:background="@android:color/transparent"
+                android:onClick="onTeamLeadClick"
+                android:text=""
+                app:layout_constraintBottom_toBottomOf="@id/imageMorning"
+                app:layout_constraintEnd_toEndOf="@id/imageMorning"
+                app:layout_constraintTop_toTopOf="@id/imageMorning"
+                app:layout_constraintVertical_bias="0.291" />
+
+            <Button
+                android:id="@+id/btnZoom"
+                android:layout_width="68dp"
+                android:layout_height="62dp"
+                android:layout_marginStart="84dp"
+                android:layout_marginTop="244dp"
+                android:background="@android:color/transparent"
+                android:onClick="onZoomClick"
+                android:text=""
+                app:layout_constraintStart_toStartOf="@id/imageMorning"
+                app:layout_constraintTop_toTopOf="@id/imageMorning" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
